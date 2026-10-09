@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="0mwfJibPgIaG7fSnSFipkW">
+<head data-page-node-id="BNExIR8Z1H9lKh0EWC91bA">
+<meta charset="UTF-8" data-page-node-id="93namCRt9HD5PT6g1baPee">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="vZKzXaU7G7FQrabHh1aRzy">
+<title>左滨嘉 · 个人介绍</title>
+<style>
+  /* ========== 基础重置与全局 ========== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --orange: #ff8c42;
+    --orange-deep: #f4711f;
+    --yellow: #ffc93c;
+    --cream: #fff8ef;
+    --ink: #3a332e;
+    --ink-soft: #6f645c;
+    --white: #ffffff;
+    --radius: 18px;
+    --shadow: 0 8px 24px rgba(244, 113, 31, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Segoe UI", sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ========== Hero 头部 ========== */
+  .hero {
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ffb347 0%, #ff8c42 45%, #ff7043 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 装饰性圆环，呼应篮球 */
+  .hero::before,
+  .hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .hero::before {
+    width: 340px;
+    height: 340px;
+    top: -110px;
+    right: -90px;
+  }
+
+  .hero::after {
+    width: 240px;
+    height: 240px;
+    bottom: -80px;
+    left: -70px;
+    border-style: dashed;
+  }
+
+  .hero-avatar {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    margin-bottom: 26px;
+    animation: floatIn 0.9s ease both;
+  }
+
+  .hero-name {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    color: var(--white);
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    margin-bottom: 14px;
+    animation: floatIn 0.9s ease 0.15s both;
+  }
+
+  .hero-tagline {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: var(--white);
+    padding: 8px 22px;
+    border-radius: 999px;
+    font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+    backdrop-filter: blur(4px);
+    animation: floatIn 0.9s ease 0.3s both;
+  }
+
+  .hero-quote {
+    margin-top: 22px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    animation: floatIn 0.9s ease 0.45s both;
+  }
+
+  @keyframes floatIn {
+    from {
+      opacity: 0;
+      transform: translateY(26px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ========== 通用板块 ========== */
+  .section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 24px 8px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .section-title .dot {
+    color: var(--orange);
+  }
+
+  .section-sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 34px;
+  }
+
+  /* ========== 卡片网格 ========== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 30px 26px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--orange);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(244, 113, 31, 0.2);
+  }
+
+  .card-icon {
+    font-size: 40px;
+    margin-bottom: 14px;
+  }
+
+  .card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .card p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* ========== 兴趣爱好：篮球主卡 ========== */
+  .hobby-feature {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    background: linear-gradient(120deg, #fff3df 0%, #ffe6c7 100%);
+    border-top: 4px solid var(--yellow);
+  }
+
+  .hobby-feature .big-ball {
+    font-size: 72px;
+    line-height: 1;
+    flex-shrink: 0;
+    animation: bounce 2.6s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  .hobby-feature .hobby-text {
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .hobby-feature h3 {
+    font-size: 1.35rem;
+    margin: 0 0 10px;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .tag {
+    background: var(--white);
+    color: var(--orange-deep);
+    border: 1px solid rgba(244, 113, 31, 0.35);
+    padding: 5px 16px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  /* ========== 性格特点 ========== */
+  .personality-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .trait {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px 30px;
+    text-align: center;
+    flex: 1 1 200px;
+    max-width: 240px;
+    transition: transform 0.25s ease;
+  }
+
+  .trait:hover {
+    transform: translateY(-5px);
+  }
+
+  .trait .trait-emoji {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .trait strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--orange-deep);
+    margin-bottom: 6px;
+  }
+
+  .trait span {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  /* ========== 页脚 ========== */
+  footer {
+    margin-top: 72px;
+    background: linear-gradient(135deg, #ff8c42 0%, #ff7043 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.92rem;
+  }
+
+  footer .footer-emoji {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 68vh;
+      padding: 48px 18px;
+    }
+
+    .hero-avatar {
+      width: 104px;
+      height: 104px;
+      font-size: 52px;
+    }
+
+    .section {
+      padding: 48px 18px 6px;
+    }
+
+    .hobby-feature {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hobby-feature .tag-row {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-tagline {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+    }
+
+    .trait {
+      flex: 1 1 100%;
+      max-width: none;
+    }
+  }
+</style>
+</head>
+<body data-page-node-id="hrP6wVXCQFQY3qh9YAxCnL">
+
+  <!-- ===== Hero 头部 ===== -->
+  <header class="hero" data-page-node-id="ZiHsr17mMbxGFKUxHWmZm8">
+    <div class="hero-avatar" data-page-node-id="XtTuciqBmeCulefL2KNlHP">🏀</div>
+    <h1 class="hero-name" data-page-node-id="53Wnb9MJqup7cojhgtTwbF">左滨嘉</h1>
+    <span class="hero-tagline" data-page-node-id="wFTYDtmqcCX3XZGq3m18cv">山东师范大学 · 计算机专业 · 大一</span>
+    <p class="hero-quote" data-page-node-id="hEbcsQnCUfx8tLi16cgAGL">"热爱篮球，热爱代码，用开朗的笑容面对每一天！"</p>
+  </header>
+
+  <!-- ===== 学校与专业 ===== -->
+  <section class="section" data-page-node-id="m7UdCLLCORWQGzQUXnk3ZL">
+    <h2 class="section-title" data-page-node-id="VDO4PgP44IXAiVumy6RBce">学校<span class="dot" data-page-node-id="9HOovZcF8zAHXsDUO9ChLy">·</span>专业</h2>
+    <p class="section-sub" data-page-node-id="enZ29IwtmpeO1oEg3avbGw">我的求学之路，从这里启航</p>
+    <div class="card-grid" data-page-node-id="CcAP60slwAD2Q1JCTafgzp">
+      <div class="card" data-page-node-id="ir7bEBDKXlULW6kp9H29xz">
+        <div class="card-icon" data-page-node-id="QNsb2IoojEEvzzbvnmfQfA">🎓</div>
+        <h3 data-page-node-id="NSSr4UcIYeW6OJtVYRMeQ8">山东师范大学</h3>
+        <p data-page-node-id="c9Z3Uc6SOzfgbffx1L7rFn">坐落于泉城济南，底蕴深厚、书香满园，是我大学生活开始的地方。</p>
+      </div>
+      <div class="card" data-page-node-id="f0zNzTPefpOKabctbwaknf">
+        <div class="card-icon" data-page-node-id="MRSRU352vrC2KvmsiheFhU">💻</div>
+        <h3 data-page-node-id="cBx7JDL2SDsVUx6lTWotSE">计算机专业</h3>
+        <p data-page-node-id="q1LZoe7uKcTxNsdEGXzReN">从第一行代码开始探索数字世界，享受用技术解决问题带来的成就感。</p>
+      </div>
+      <div class="card" data-page-node-id="WA7BpFtSMFRhtGtcuhOJY0">
+        <div class="card-icon" data-page-node-id="CiasoVopZ5GIbCBLNwW9GY">🌱</div>
+        <h3 data-page-node-id="WIffegJKVNZH8c7PBUsyZV">大一新生</h3>
+        <p data-page-node-id="tsp2S5fh5d4TcnMAW6OkUo">站在大学的起点，满怀好奇与热情，期待四年的成长与蜕变。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 兴趣爱好 ===== -->
+  <section class="section" data-page-node-id="UQU1S2o53ooPo819knmRgY">
+    <h2 class="section-title" data-page-node-id="KQHKdA1eIpawdCMoWeCuCv">兴趣<span class="dot" data-page-node-id="awSg9DMJBwYnff7uCnc70X">·</span>爱好</h2>
+    <p class="section-sub" data-page-node-id="MB3tYHZpNVDSmGBzeOmGnw">球场见！那里有我最快乐的时光</p>
+    <div class="card-grid" data-page-node-id="SeU6r4VZWTqWnuK7N44t8z">
+      <div class="card hobby-feature" data-page-node-id="qEQfFF1j7uq9ZTPy6LHuKx">
+        <div class="big-ball" data-page-node-id="TgrKXkKgAjJGizAYeaHoL4">🏀</div>
+        <div class="hobby-text" data-page-node-id="Kr3EYX8oI2YzKH42kbJ3UQ">
+          <h3 data-page-node-id="LjFWT3bYxhbIC8DFzcy8YY">打篮球</h3>
+          <p data-page-node-id="yIvNL6AXE14hALXASRgOyn">无论是课余的友谊赛，还是一个人的投篮练习，篮球都是我释放活力、结交朋友的最好方式。在球场上学会了团队协作，也收获了满满的快乐。</p>
+          <div class="tag-row" data-page-node-id="Gx6vyD7VoJDshA40oU8VuP">
+            <span class="tag" data-page-node-id="Joz1t32bVBKw8fW3Yzo4gD">团队协作</span>
+            <span class="tag" data-page-node-id="1AKIjEhxz9HICVXAWR3wDu">坚持锻炼</span>
+            <span class="tag" data-page-node-id="tPjfYPyGX5xrqZFSWuPCbK">永不服输</span>
+            <span class="tag" data-page-node-id="VP3apHBwyI0rW0DTuC7HbA">球场社交</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 性格特点 ===== -->
+  <section class="section" data-page-node-id="DumHVm4sSVSwbTz0uTMHDm">
+    <h2 class="section-title" data-page-node-id="NmPInln7bz36Z5EvwvlYGf">性格<span class="dot" data-page-node-id="4T3lbp0fw4fWvz2l4GWlba">·</span>特点</h2>
+    <p class="section-sub" data-page-node-id="OGfM38XuXD0TFBVvaAOYYh">认识一下这样的我</p>
+    <div class="personality-wrap" data-page-node-id="CUQUJnELzy8YGQG4EqBBqj">
+      <div class="trait" data-page-node-id="AMpaQqwouZOhNCCVCniyIJ">
+        <span class="trait-emoji" data-page-node-id="jHK7sQs3QQMxBKEdZumrL8">😄</span>
+        <strong data-page-node-id="ak2PVGsHMNyG4DYFX0vxHI">开朗</strong>
+        <span data-page-node-id="Fzi8R3du5iwuzUYN3wOLVq">爱笑爱聊，正能量满格</span>
+      </div>
+      <div class="trait" data-page-node-id="565SepDtxeJLnhGnh3KtaW">
+        <span class="trait-emoji" data-page-node-id="PA5Eve7bl4OB8SJrwo8Vj2">☀️</span>
+        <strong data-page-node-id="R5PR2OUtJdX6HMTvenX95Y">乐观</strong>
+        <span data-page-node-id="rmLCIS1Vl5Lvm0HJjt2XiF">遇到困难也往好处想</span>
+      </div>
+      <div class="trait" data-page-node-id="ypAnpHZo4qhBZQESXCLGpw">
+        <span class="trait-emoji" data-page-node-id="FX2jhfGW6IYPmn24OYStj7">🤝</span>
+        <strong data-page-node-id="5rO8gfolarDidLBKQ8aRXa">乐于交流</strong>
+        <span data-page-node-id="ULkTqb6oqiHiuM5Foni8CA">喜欢结交新朋友</span>
+      </div>
+      <div class="trait" data-page-node-id="cEKZZ1rgnLSiJap4xHVK5g">
+        <span class="trait-emoji" data-page-node-id="UHudGD500MZKuUEvzEAQrD">⚡</span>
+        <strong data-page-node-id="7EzYKO6OGP4DRpaDfcrAgG">活力满满</strong>
+        <span data-page-node-id="aFWyGWVFSTRwqEydpgMOAK">精力充沛，行动派</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 页脚 ===== -->
+  <footer data-page-node-id="SNXug2JOfwa0jWchG0SFF7">
+    <span class="footer-emoji" data-page-node-id="0gQn4PohRrVFzvKHP2EOf6">🏀</span>
+    <p data-page-node-id="gLIz0W7C4KGSEGSfqJPHW8">左滨嘉 · 山东师范大学计算机专业 · 感谢你的到访！</p>
+  </footer>
+
+</body>
+</html>
